@@ -5,6 +5,7 @@ public class Job {
     private Request request;
     private jobStatus status;
     private int arrivalTime;
+    private Payment payment;
 
     public Job(int elapsedTime, Request request, int arrivalTime){
         this.elapsedTime = elapsedTime;
