@@ -8,9 +8,17 @@ public class Scheduler {
     private ArrayList<responderAssign> responderAssigns;
     private Job job;
 
-    public Scheduler( Request request){
+    public Scheduler(Request request){
         this.request=request;
+        ArrayList<Responder> responders =mostSuitableResponders(request);
+
+        for(Responder responder : responders){
+            sendRequest(responder, request);
+            //wait until response within certain timelimit
+            }
+
     }
+    
 
     public responderAssign createResponderAssign(Request request, Responder responder){
         return new responderAssign(responder, request);
