@@ -9,7 +9,7 @@ public class responderAssign {
     public responderAssign(Responder responder, Request request){
         this.responder=responder;
         this.request=request;
-        this.senior=request.getSenior()
+        this.senior=request.getSenior();
 
         //CHEAT, this is meant to symbolize the average rating for a responder + the distance between a senior and a job. Its also ment to take preferences into account.
         this.suitabilityForRequest= ThreadLocalRandom.current().nextInt(0, 5 + 1);
@@ -19,6 +19,22 @@ public class responderAssign {
         }
     }
 
+    public float getSuitabilityForRequest(){
+        return this.suitabilityForRequest;
+    }
+
+    public Responder getResponder(){
+        return this.responder;
+    }
+    public void sendRequest(Responder responder, Request request){
+        
+    }
+
+    public void createJob(Responder responder, Request request){
+
+    }
+
+    
 
     
 }

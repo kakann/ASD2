@@ -1,5 +1,8 @@
 
 import java.util.ArrayList;
+import java.util.Random;
+import java.util.random.*;
+import java.util.concurrent.ThreadLocalRandom;
 
 public abstract class User{
     private String username;
@@ -11,7 +14,8 @@ public abstract class User{
     private Gender gender;
     private int age;
     private paymentOption payment;
-    private ArrayList<Review> reviews;
+    private ArrayList<Review> writtenReviews;
+    private ArrayList<Review> Reviews;
 
 
     public User(String username, String password, String emailAddress, int phoneNr, String gender2, int age){
@@ -49,6 +53,17 @@ public abstract class User{
     public String getName(){
         return this.username;
     }
+
+    public Chat createChat(ArrayList<User> users){
+        return new Chat(users);
+    }
+
+    public void sendMessage(Chat chat, String msg){
+        //Cheat for describing an interger representing a timestamp.
+        int time = ThreadLocalRandom.current().nextInt(0, 5 + 1);
+        chat.createMessage(new Message(msg, this, time ));
+    }
+    
     
 
 

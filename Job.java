@@ -7,8 +7,7 @@ public class Job {
     private int arrivalTime;
     private Payment payment;
 
-    public Job(int elapsedTime, Request request, int arrivalTime){
-        this.elapsedTime = elapsedTime;
+    public Job(Request request){
         this.request = request;
         this.status = jobStatus.active;
     }

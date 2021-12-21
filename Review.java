@@ -7,6 +7,5 @@ public class Review {
         this.rating = rating;
         this.reviewText = reviewText;
         this.job=job;
-
     }
 }
