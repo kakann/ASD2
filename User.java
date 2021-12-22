@@ -18,7 +18,7 @@ public abstract class User{
     private ArrayList<Review> Reviews;
 
 
-    public User(String username, String password, String emailAddress, int phoneNr, String gender2, int age){
+    public User(String username, String password, String emailAddress, int phoneNr, Gender gender, int age){
         this.username = username;
         this.password = password;
         this.emailAddress = emailAddress;
@@ -43,7 +43,6 @@ public abstract class User{
             }
         }
         return false;
-
     }
 
     public Review makeReview(Stars stars, String reviewText, Job job){
@@ -61,7 +60,13 @@ public abstract class User{
     public void sendMessage(Chat chat, String msg){
         //Cheat for describing an interger representing a timestamp.
         int time = ThreadLocalRandom.current().nextInt(0, 5 + 1);
-        chat.createMessage(new Message(msg, this, time ));
+        chat.addMessage(msg, this, time);
+
+    }
+
+    public String resetPassword(String emailAddress){
+        String newPassword = "0000";
+		return newPassword;
     }
     
     

@@ -1,5 +1,5 @@
 public enum Gender {
     man,
     woman,
-    non_disclosed,
+    non_Disclosed,
 }

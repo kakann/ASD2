@@ -27,11 +27,11 @@ public class responderAssign {
         return this.responder;
     }
     public void sendRequest(Responder responder, Request request){
-        
+        /// Send notification to user
     }
 
     public void createJob(Responder responder, Request request){
-
+        new Job(request, responder);
     }
 
     

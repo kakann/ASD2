@@ -9,5 +9,9 @@ public class Report {
         this.reported = reported;
         this.reportText = reportText;
     }
+
+    public void notifyAdmin(){
+		// Send report to admin
+    }
     
 }

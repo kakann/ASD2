@@ -8,7 +8,7 @@ public class Chat {
         this.users = users;
     }
 
-    public void createMessage(Message msg){
+    public void addMessage(Message msg){
         this.messages.add(msg);
 
         ArrayList<User> clone = (ArrayList<User>) this.users.clone();
@@ -19,7 +19,6 @@ public class Chat {
 
     public void transmit(User user, Message msg){
         //function to send msg to a specific user.
-
     }
-    
+
 }

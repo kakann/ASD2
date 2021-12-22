@@ -1,14 +1,16 @@
 import java.sql.Time;
 
 public class Job {
+    private Responder responder;
     private int elapsedTime;
     private Request request;
     private jobStatus status;
     private int arrivalTime;
     private Payment payment;
 
-    public Job(Request request){
+    public Job(Request request, Responder responder){
         this.request = request;
+        this.responder = responder;
         this.status = jobStatus.active;
     }
 
@@ -20,4 +22,7 @@ public class Job {
         this.status = newStatus;
     }
     
+    public Request getRequestFromJob(){
+        return this.request;
+    }
 }
