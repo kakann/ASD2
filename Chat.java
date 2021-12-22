@@ -1,5 +1,7 @@
 import java.util.ArrayList;
-
+import java.util.Random;
+import java.util.random.*;
+import java.util.concurrent.ThreadLocalRandom;
 public class Chat {
     private ArrayList<User> users;
     private ArrayList<Message> messages; 
@@ -8,7 +10,9 @@ public class Chat {
         this.users = users;
     }
 
-    public void addMessage(Message msg){
+    public void addMessage(String message, User sender){
+        int timeStamp = ThreadLocalRandom.current().nextInt(0, 5 + 1);
+        Message msg = new Message(message, sender, timeStamp);
         this.messages.add(msg);
 
         ArrayList<User> clone = (ArrayList<User>) this.users.clone();
