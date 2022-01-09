@@ -1,20 +1,16 @@
 import java.util.ArrayList;
 public class Responder extends User {
     private Job acceptedJob;
-    private Request proposedRequest;
 
-    public Responder(String username, String password, String emailAddress, int phoneNr, Gender gender, int age) {
+
+    public Responder(String username, String password, Enum paymentOption, String emailAddress, int phoneNr, Gender gender, int age, Address address) {
         
-        super(username, password, emailAddress, phoneNr, gender, age);
+        super(username, password, paymentOption, emailAddress, phoneNr, gender, age, address);
         responders.responders.add(this);
-        //TODO Auto-generated constructor stub
-    }
-    public void changeProposedRequest(Request request){
-        this.proposedRequest = request;
     }
 
     public void acceptJob(Request request){
-        
+        // Function for accepting a Job.
     }
 
     public ArrayList<Payment> getPaymentsDue(){
@@ -28,6 +24,21 @@ public class Responder extends User {
     public ArrayList<Request> getPendingRequests(){
         return new ArrayList<Request>();
     }
+
+    public float calculateAverageRating(ArrayList<Review> reviews){
+        float total = 0;
+        for(Review review: reviews){
+            total += review.getRating();
+        }
+        int size = reviews.size();
+        return  total/size;
+    }
+
+    public int indicateJobArrival(){
+        return 2022011516;
+    }
+
+    
 
     
 

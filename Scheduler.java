@@ -5,38 +5,36 @@ import java.util.*;
 public class Scheduler {
     //private ArrayList<Responder> responders;
     private Request request;
-    private ArrayList<responderAssign> responderAssigns;
+    private ArrayList<ResponderAssign> responderAssigns;
     private Job job;
 
     public Scheduler(Request request){
         this.request=request;
-        ArrayList<Responder> responders =mostSuitableResponders(request);
+        ArrayList<Responder> responders = mostSuitableResponders(request);
 
         for(Responder responder : responders){
             sendRequest(responder, request);
             //wait until response within certain timelimit
             }
-
     }
     
-
-    public responderAssign createResponderAssign(Request request, Responder responder){
-        return new responderAssign(responder, request);
+    public ResponderAssign createResponderAssign(Request request, Responder responder){
+        return new ResponderAssign(responder, request);
     }
     
-    public Job createJob(responderAssign responderAssign ){
+    public Job createJob(ResponderAssign responderAssign){
         return new Job(this.request, responderAssign.getResponder());
-    }
+    }    
 
     public ArrayList<Responder> mostSuitableResponders(Request request){
-        ArrayList<responderAssign> responderAssigns = new ArrayList<responderAssign>();
+        ArrayList<ResponderAssign> responderAssigns = new ArrayList<ResponderAssign>();
         for(Responder responder: responders.responders){
             responderAssigns.add(createResponderAssign(request, responder)); 
         }
 
         responderAssigns.sort(new ResponderAssignSorter());
         ArrayList<Responder> responders = new ArrayList<Responder>();
-        for(responderAssign r : responderAssigns){
+        for(ResponderAssign r : responderAssigns){
             responders.add(r.getResponder());
         }
         Collections.reverse(responders);
@@ -44,7 +42,7 @@ public class Scheduler {
     }
 
     public Boolean sendRequest(Responder responder, Request request){
-        responder.changeProposedRequest(request);
+        //Send request to responder
         Boolean success = false;
         return success; 
     }

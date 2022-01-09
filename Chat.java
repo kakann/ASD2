@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.random.*;
+//import java.util.random.*;
 import java.util.concurrent.ThreadLocalRandom;
 public class Chat {
     private ArrayList<User> users;

@@ -22,6 +22,9 @@ public class Job {
         this.status = newStatus;
     }
     
+    public void addPayment(Payment newPayment){
+        this.payment=newPayment;
+    }
     public Request getRequestFromJob(){
         return this.request;
     }
