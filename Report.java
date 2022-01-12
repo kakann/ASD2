@@ -1,10 +1,10 @@
 
 public class Report {
-    private String reporter;
-    private String reported;
+    private User reporter;
+    private User reported;
     private String reportText;
 
-    public Report(String reporter, String reported, String reportText){
+    public Report(User reporter, User reported, String reportText){
         this.reporter = reporter;
         this.reported = reported;
         this.reportText = reportText;

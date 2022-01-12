@@ -1,52 +1,52 @@
 
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.random.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 public abstract class User{
     private String username;
     private String password;
-    //private paymentOption paymentOption;
     private String emailAddress;
     private int phoneNr;
-    private ArrayList<String> blocked;
+    private ArrayList<User> blocked;
     private Gender gender;
     private int age;
-    private paymentOption payment;
+    private Enum payment;
     private ArrayList<Review> writtenReviews;
     private ArrayList<Review> Reviews;
+    private Address address;
 
-
-    public User(String username, String password, String emailAddress, int phoneNr, Gender gender, int age){
+    public User(String username, String password, Enum payment, String emailAddress, int phoneNr, Gender gender, int age, Address address){
         this.username = username;
         this.password = password;
         this.emailAddress = emailAddress;
         this.phoneNr = phoneNr;
         this.gender = gender;
         this.age = age;
+        this.payment=payment;
+        this.address=address;
     }
 
-    public void blockUser(String user){
+    public void blockUser(User user){
         this.blocked.add(user);
     }
 
-    public void report(String User, String reportDescription){
+    public void report(User user, String reportDescription){
         //send to police
-        new Report(this.username, User, reportDescription);
+        new Report(this, user, reportDescription);
     }
 
     public Boolean isBlocked(User user){
-        for (String userName : this.blocked){
-            if(userName == user.getName()){
+        for (User buser : this.blocked){
+            if(buser.getName() == user.getName()){
                 return true;
             }
         }
         return false;
     }
 
-    public Review makeReview(Stars stars, String reviewText, Job job){
-        return new Review(stars, reviewText, job);
+    public Review makeReview(int rating, String reviewText, Job job){
+        return new Review(rating, reviewText, job);
     }
 
     public String getName(){
@@ -59,7 +59,6 @@ public abstract class User{
 
     public void sendMessage(Chat chat, String msg){
         //Cheat for describing an interger representing a timestamp.
-        
         chat.addMessage(msg, this);
 
     }
@@ -68,8 +67,4 @@ public abstract class User{
         String newPassword = "0000";
 		return newPassword;
     }
-    
-    
-
-
 }

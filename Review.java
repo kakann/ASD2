@@ -1,11 +1,15 @@
 public class Review {
-    private Stars rating;
+    private int rating;
     private String reviewText;
     private Job job;
 
-    public Review(Stars stars, String reviewText, Job job){
+    public Review(int rating, String reviewText, Job job){
         this.rating = rating;
         this.reviewText = reviewText;
         this.job=job;
+    }
+
+    public int getRating(){
+        return this.rating;
     }
 }

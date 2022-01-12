@@ -4,13 +4,13 @@ public class Request {
     private Senior senior;
     private int requestTime;
     private boolean emergency;
-    private float estimatedTime;
-    private float deadline;
+    private int estimatedTime;
+    private int deadline;
     private String description;
     private ArrayList<Tool> tools;
     private ArrayList<Skill> skills;
 
-    public Request(Senior senior, int requestTime, boolean emergency, float estimateTime, float deadline, String description){
+    public Request(Senior senior, int requestTime, boolean emergency, int estimateTime, int deadline, String description){
         this.senior=senior;
         this.requestTime = requestTime;
         this.emergency = emergency;
