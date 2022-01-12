@@ -59,8 +59,8 @@ public abstract class User{
 
     public void sendMessage(Chat chat, String msg){
         //Cheat for describing an interger representing a timestamp.
-        int time = ThreadLocalRandom.current().nextInt(0, 5 + 1);
-        chat.addMessage(msg, this, time);
+        
+        chat.addMessage(msg, this);
 
     }
 

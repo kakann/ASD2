@@ -15,9 +15,8 @@ public class Chat {
         Message msg = new Message(message, sender, timeStamp);
         this.messages.add(msg);
 
-        ArrayList<User> clone = (ArrayList<User>) this.users.clone();
-        while(clone.size() != 0){
-            transmit(this.users.remove(0), msg);
+        for(User u : this.users){
+            transmit(u, msg);
         }
     }
 

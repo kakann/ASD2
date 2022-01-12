@@ -6,6 +6,7 @@ public class Responder extends User {
     public Responder(String username, String password, String emailAddress, int phoneNr, Gender gender, int age) {
         
         super(username, password, emailAddress, phoneNr, gender, age);
+        //THIS IS THE DB
         responders.responders.add(this);
         //TODO Auto-generated constructor stub
     }
